@@ -41,14 +41,14 @@
       margin: 40px auto;
     }
 
-    .plate-wrapper {
+    /*.plate-wrapper {
       background: white;
-      border-radius: 2vw;  /* dynamic radius based on viewport width */
+      border-radius: 2vw;  /* dynamic radius based on viewport width 
       overflow: hidden;
       box-shadow: 0 0 5px rgba(0,0,0,0.3);
       margin: 20px auto;
       max-width: 90%;
-    }
+    }*/
     
     svg {
       display: none;
@@ -65,10 +65,10 @@
   <h1 style="text-align:center;">3D Plate Configurator V5.12</h1>
   <div class="configurator">
     <label>Plate Style:</label><br>
-    <label><input type="radio" name="style" value="small"> Small Plate</label><br>
-    <label><input type="radio" name="style" value="euro"> Euro Style</label><br>
-    <label><input type="radio" name="style" value="largeSide"> Large-Side-State</label><br>
-    <label><input type="radio" name="style" value="largeBottom" checked> Large-Bottom-State</label><br><br>
+    <label><input type="radio" name="style" value="small"> Small - Standard Plate</label><br>
+    <label><input type="radio" name="style" value="euro"> Small - Euro Font</label><br>
+    <label><input type="radio" name="style" value="largeBottom"> Large - Standard</label><br>
+    <label><input type="radio" name="style" value="largeSide" checked> Large - Side State</label><br><br>
 
     <label>Main Text: <input type="text" id="mainText" value="CUSTOM"></label><br><br>
     <label>Location Text: <input type="text" id="bottomText" value="VICTORIA"></label><br><br>
@@ -98,6 +98,9 @@
     </label><br><br>
 
     <label><input type="checkbox" id="holesToggle" checked> Show Holes</label><br><br>
+
+    <label>Small Plate Dimensions - 50mm x 120mm</label><br>
+    <label>Large Plate Dimensions - 65mm x 180mm</label><br>
   </div>
 
   <div class="plate-wrapper">
