@@ -1,4 +1,4 @@
-v1<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -35,18 +35,11 @@ v1<!DOCTYPE html>
       max-width: 650px;
       margin: 40px auto;
     }
-    .configurator-wrapper {
-      font-family: Arial, sans-serif;
-      background-color: #cccccc; /* <-- already grey */
-      padding: 20px;
-      isolation: isolate;
-      color-scheme: light;
-    }
     canvas {
       display: block;
       margin: 20px auto;
-      border: 1px solid #000;
-      background: white;
+      border: none;
+      background: #cccccc;
     }
     svg {
       position: absolute;
@@ -62,7 +55,7 @@ v1<!DOCTYPE html>
   <h1>3D Plate Configurator V5.12 Bulletproof</h1>
 
   <label>Plate Style:</label><br>
-  <label><input type="radio" name="style" value="small"checked> Small Plate</label><br>
+  <label><input type="radio" name="style" value="small" checked> Small Plate</label><br>
   <label><input type="radio" name="style" value="euro"> Euro Style</label><br>
   <label><input type="radio" name="style" value="largeSide"> Large-Side-State</label><br>
   <label><input type="radio" name="style" value="largeBottom"> Large-Bottom-State</label><br><br>
@@ -99,7 +92,6 @@ v1<!DOCTYPE html>
   <canvas id="plateCanvas" width="480" height="200"></canvas>
 </div>
 
-<!-- Hidden SVG for rendering -->
 <svg id="plateSVG" xmlns="http://www.w3.org/2000/svg" width="480" height="200"></svg>
 
 <script>
@@ -121,15 +113,14 @@ function update() {
   const bg = bgColor.value;
   const showHoles = holesToggle.checked;
 
-  // Clear SVG
   svg.innerHTML = '';
 
   if (style === "euro") {
     svg.setAttribute("viewBox", "0 0 120 50");
     svg.setAttribute("width", 480);
     svg.setAttribute("height", 200);
-
     svg.innerHTML = `
+      <rect x="0" y="0" width="100%" height="100%" fill="#cccccc" />
       <rect x="1" y="1" width="118" height="48" rx="5" ry="5" stroke="${color}" stroke-width="2" fill="${bg}" />
       ${showHoles ? `
         <circle cx="5" cy="5" r="1.5" fill="#cccccc"/>
@@ -145,13 +136,12 @@ function update() {
     svg.setAttribute("viewBox", "0 0 120 50");
     svg.setAttribute("width", 480);
     svg.setAttribute("height", 200);
-
     let bottomSpan = '';
     for (let c of bottomVal) {
       bottomSpan += `<tspan dx="1" fill="${color}">${c}</tspan>`;
     }
-
     svg.innerHTML = `
+      <rect x="0" y="0" width="100%" height="100%" fill="#cccccc" />
       <rect x="1" y="1" width="118" height="48" rx="5" ry="5" stroke="${color}" stroke-width="2" fill="${bg}" />
       ${showHoles ? `
         <circle cx="5" cy="5" r="1.5" fill="#cccccc"/>
@@ -167,15 +157,14 @@ function update() {
     svg.setAttribute("viewBox", "0 0 180 65");
     svg.setAttribute("width", 480);
     svg.setAttribute("height", 173);
-    
     const letters = (bottomVal.padEnd(3,' ')).substring(0,3).toUpperCase();
     let mainSpan = '';
     const startX = 95 - ((val.length - 1) * 23 / 2);
     for (let i = 0; i < val.length; i++) {
       mainSpan += `<tspan x="${startX + i*23}" y="54">${val[i]}</tspan>`;
     }
-
     svg.innerHTML = `
+      <rect x="0" y="0" width="100%" height="100%" fill="#cccccc" />
       <rect x="1" y="1" width="178" height="63" rx="5" ry="5" stroke="${color}" stroke-width="2" fill="${bg}" />
       ${showHoles ? `
         <circle cx="5" cy="5" r="1.5" fill="#cccccc"/>
@@ -193,14 +182,13 @@ function update() {
     svg.setAttribute("viewBox", "0 0 180 65");
     svg.setAttribute("width", 480);
     svg.setAttribute("height", 173);
-    
     let mainSpan = '';
     const startBX = 90 - ((val.length - 1) * 17 / 2);
     for (let i = 0; i < val.length; i++) {
       mainSpan += `<tspan x="${startBX + i*17}" y="42">${val[i]}</tspan>`;
     }
-
     svg.innerHTML = `
+      <rect x="0" y="0" width="100%" height="100%" fill="#cccccc" />
       <rect x="1" y="1" width="178" height="63" rx="5" ry="5" stroke="${color}" stroke-width="2" fill="${bg}" />
       ${showHoles ? `
         <circle cx="5" cy="5" r="1.5" fill="#cccccc"/>
@@ -219,10 +207,11 @@ function rasterizeSVG() {
   const xml = new XMLSerializer().serializeToString(svg);
   const svg64 = btoa(unescape(encodeURIComponent(xml)));
   const image64 = 'data:image/svg+xml;base64,' + svg64;
-
   const img = new Image();
   img.onload = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#cccccc';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
   };
   img.src = image64;
