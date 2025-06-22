@@ -2,7 +2,7 @@
 <html lang="en" style="background:#cccccc; color-scheme: only light; forced-color-adjust: none;">
 <head>
   <meta charset="UTF-8">
-  <title>3D Plate Configurator V5.12 Final Responsive</title>
+  <title>3D Plate Configurator V5.12 Final</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="only light">
   <style>
@@ -38,7 +38,7 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
       max-width: 650px;
-      margin: 20px auto;
+      margin: 40px auto;
     }
 
     .plate-wrapper {
@@ -46,31 +46,23 @@
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 0 5px rgba(0,0,0,0.3);
-      display: block;
+      display: inline-block;
       margin: 20px auto;
-      max-width: 90%;
-    }
-
-    .plate-wrapper svg {
-      width: 100%;
-      height: auto;
-      max-width: 480px;
-      display: block;
-      forced-color-adjust: none;
     }
 
     svg {
       display: none;
+      forced-color-adjust: none;
     }
     svg.active {
       display: block;
+      forced-color-adjust: none;
     }
   </style>
 </head>
 
 <body>
   <h1 style="text-align:center;">3D Plate Configurator V5.12</h1>
-
   <div class="configurator">
     <label>Plate Style:</label><br>
     <label><input type="radio" name="style" value="small"> Small Plate</label><br>
@@ -110,56 +102,56 @@
 
   <!-- Euro Style -->
   <div class="plate-wrapper">
-    <svg viewBox="0 0 120 50" id="plate-euro" class="active">
-      <rect id="euroBorder" x="1" y="1" width="118" height="48" rx="5" ry="5" stroke="#000000" stroke-width="2" fill="#000000"/>
-      <circle class="euroHole" cx="5" cy="5" r="1.5" fill="#cccccc"/>
-      <circle class="euroHole" cx="115" cy="5" r="1.5" fill="#cccccc"/>
-      <circle class="euroHole" cx="5" cy="45" r="1.5" fill="#cccccc"/>
-      <circle class="euroHole" cx="115" cy="45" r="1.5" fill="#cccccc"/>
-      <text id="euroTop" x="60" y="11" font-size="8" text-anchor="middle" fill="#FFFFFF" font-family="Arial Narrow">VIC</text>
-      <text id="euroMain" x="61.5" y="40" text-anchor="middle" fill="#FFFFFF" font-family="FE Mittelschrift" font-size="34">DEFAULT</text>
-    </svg>
+  <svg viewBox="0 0 120 50" id="plate-euro" class="active" width="480" height="200">
+    <rect id="euroBorder" x="1" y="1" width="118" height="48" rx="5" ry="5" stroke="#000000" stroke-width="2" fill="#000000"/>
+    <circle class="euroHole" cx="5" cy="5" r="1.5" fill="#cccccc"/>
+    <circle class="euroHole" cx="115" cy="5" r="1.5" fill="#cccccc"/>
+    <circle class="euroHole" cx="5" cy="45" r="1.5" fill="#cccccc"/>
+    <circle class="euroHole" cx="115" cy="45" r="1.5" fill="#cccccc"/>
+    <text id="euroTop" x="60" y="11" font-size="8" text-anchor="middle" fill="#FFFFFF" font-family="Arial Narrow">VIC</text>
+    <text id="euroMain" x="61.5" y="40" text-anchor="middle" fill="#FFFFFF" font-family="FE Mittelschrift" font-size="34">DEFAULT</text>
+  </svg>
   </div>
 
   <!-- Small Plate -->
   <div class="plate-wrapper">
-    <svg viewBox="0 0 120 50" id="plate-small">
-      <rect id="smallBorder" x="1" y="1" width="118" height="48" rx="5" ry="5" stroke="#000000" stroke-width="2" fill="#0000FF"/>
-      <circle class="smallHole" cx="5" cy="5" r="1.5" fill="#cccccc"/>
-      <circle class="smallHole" cx="115" cy="5" r="1.5" fill="#cccccc"/>
-      <circle class="smallHole" cx="5" cy="45" r="1.5" fill="#cccccc"/>
-      <circle class="smallHole" cx="115" cy="45" r="1.5" fill="#cccccc"/>
-      <text id="smallMain" x="61.5" y="31" font-size="28" text-anchor="middle" fill="#FFFFFF" font-family="Vicplate">CUSTOM</text>
-      <text id="smallBottom" x="60" y="45" font-size="10" text-anchor="middle" fill="#FFFFFF" font-family="Arial"></text>
-    </svg>
+  <svg viewBox="0 0 120 50" id="plate-small" width="480" height="200">
+    <rect id="smallBorder" x="1" y="1" width="118" height="48" rx="5" ry="5" stroke="#000000" stroke-width="2" fill="#0000FF"/>
+    <circle class="smallHole" cx="5" cy="5" r="1.5" fill="#cccccc"/>
+    <circle class="smallHole" cx="115" cy="5" r="1.5" fill="#cccccc"/>
+    <circle class="smallHole" cx="5" cy="45" r="1.5" fill="#cccccc"/>
+    <circle class="smallHole" cx="115" cy="45" r="1.5" fill="#cccccc"/>
+    <text id="smallMain" x="61.5" y="31" font-size="28" text-anchor="middle" fill="#FFFFFF" font-family="Vicplate">CUSTOM</text>
+    <text id="smallBottom" x="60" y="45" font-size="10" text-anchor="middle" fill="#FFFFFF" font-family="Arial"></text>
+  </svg>
   </div>
 
   <!-- Large Side -->
   <div class="plate-wrapper">
-    <svg viewBox="0 0 180 65" id="plate-largeSide">
-      <rect id="largeSideBorder" x="1" y="1" width="178" height="63" rx="5" ry="5" stroke="#000000" stroke-width="2" fill="#000000"/>
-      <circle class="largeSideHole" cx="5" cy="5" r="1.5" fill="#cccccc"/>
-      <circle class="largeSideHole" cx="175" cy="5" r="1.5" fill="#cccccc"/>
-      <circle class="largeSideHole" cx="5" cy="60" r="1.5" fill="#cccccc"/>
-      <circle class="largeSideHole" cx="175" cy="60" r="1.5" fill="#cccccc"/>
-      <text id="largeSideV" x="8" y="22" font-size="18" fill="#FFFFFF" font-family="Vicplate">V</text>
-      <text id="largeSideI" x="8" y="40" font-size="18" fill="#FFFFFF" font-family="Vicplate">I</text>
-      <text id="largeSideC" x="8" y="57" font-size="18" fill="#FFFFFF" font-family="Vicplate">C</text>
-      <text id="largeSideMain" font-size="56" text-anchor="middle" fill="#FFFFFF" font-family="Vicplate"></text>
-    </svg>
+  <svg viewBox="0 0 180 65" id="plate-largeSide" width="480" height="173">
+    <rect id="largeSideBorder" x="1" y="1" width="178" height="63" rx="5" ry="5" stroke="#000000" stroke-width="2" fill="#000000"/>
+    <circle class="largeSideHole" cx="5" cy="5" r="1.5" fill="#cccccc"/>
+    <circle class="largeSideHole" cx="175" cy="5" r="1.5" fill="#cccccc"/>
+    <circle class="largeSideHole" cx="5" cy="60" r="1.5" fill="#cccccc"/>
+    <circle class="largeSideHole" cx="175" cy="60" r="1.5" fill="#cccccc"/>
+    <text id="largeSideV" x="8" y="22" font-size="18" fill="#FFFFFF" font-family="Vicplate">V</text>
+    <text id="largeSideI" x="8" y="40" font-size="18" fill="#FFFFFF" font-family="Vicplate">I</text>
+    <text id="largeSideC" x="8" y="57" font-size="18" fill="#FFFFFF" font-family="Vicplate">C</text>
+    <text id="largeSideMain" font-size="56" text-anchor="middle" fill="#FFFFFF" font-family="Vicplate"></text>
+  </svg>
   </div>
 
   <!-- Large Bottom -->
   <div class="plate-wrapper">
-    <svg viewBox="0 0 180 65" id="plate-largeBottom">
-      <rect id="largeBottomBorder" x="1" y="1" width="178" height="63" rx="5" ry="5" stroke="#000000" stroke-width="2" fill="#0000FF"/>
-      <circle class="largeBottomHole" cx="5" cy="5" r="1.5" fill="#cccccc"/>
-      <circle class="largeBottomHole" cx="175" cy="5" r="1.5" fill="#cccccc"/>
-      <circle class="largeBottomHole" cx="5" cy="60" r="1.5" fill="#cccccc"/>
-      <circle class="largeBottomHole" cx="175" cy="60" r="1.5" fill="#cccccc"/>
-      <text id="largeBottomMain" font-size="42" text-anchor="middle" fill="#FFFFFF" font-family="Vicplate"></text>
-      <text id="largeBottomBottom" x="90" y="58" font-size="11" text-anchor="middle" fill="#FFFFFF" font-family="Arial">VICTORIA</text>
-    </svg>
+  <svg viewBox="0 0 180 65" id="plate-largeBottom" width="480" height="173">
+    <rect id="largeBottomBorder" x="1" y="1" width="178" height="63" rx="5" ry="5" stroke="#000000" stroke-width="2" fill="#0000FF"/>
+    <circle class="largeBottomHole" cx="5" cy="5" r="1.5" fill="#cccccc"/>
+    <circle class="largeBottomHole" cx="175" cy="5" r="1.5" fill="#cccccc"/>
+    <circle class="largeBottomHole" cx="5" cy="60" r="1.5" fill="#cccccc"/>
+    <circle class="largeBottomHole" cx="175" cy="60" r="1.5" fill="#cccccc"/>
+    <text id="largeBottomMain" font-size="42" text-anchor="middle" fill="#FFFFFF" font-family="Vicplate"></text>
+    <text id="largeBottomBottom" x="90" y="58" font-size="11" text-anchor="middle" fill="#FFFFFF" font-family="Arial">VICTORIA</text>
+  </svg>
   </div>
 
   <script>
@@ -255,5 +247,6 @@
     [mainText, bottomText, textColor, bgColor, holesToggle].forEach(input => input.addEventListener("input", update));
     switchStyle();
   </script>
+
 </body>
 </html>
